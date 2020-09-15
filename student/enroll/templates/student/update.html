@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>update</title>
+    <style>
+.top
+{
+position:absolute;
+top:80px;
+left:200px;
+height:80px;
+width:1600px;
+background-color:#FA8072;
+}
+#tx1
+{
+position:absolute;
+left:150px;
+font-size:50px;
+font-weight:bold;
+font-family:Sans-serif;
+top:-40px;
+}
+
+.box2
+{
+position:absolute;
+top:200px;
+left:500px;
+height:80px;
+width:1000px;
+background-color:#87CEEB;
+}
+#tx2
+{
+position:absolute;
+left:350px;
+font-size:20px;
+font-weight:bold;
+font-family:Sans-serif;
+top:5px;
+}
+.box3
+{
+position:absolute;
+top:290px;
+left:500px;
+height:500px;
+width:1000px;
+
+
+}
+#id_Name
+{
+position:absolute;
+top:80px;
+left:40px;
+width:80%;
+height:30px;
+border-radius:10px;
+outline:none;
+}
+#a
+{
+position:absolute;
+top:15px;
+left:45px;
+font-size:25px;
+}
+
+#id_Email
+{
+position:absolute;
+top:180px;
+left:40px;
+width:80%;
+height:30px;
+border-radius:10px;
+outline:none;
+}
+#b
+{
+position:absolute;
+top:115px;
+left:45px;
+font-size:25px;
+}
+#id_Password
+{
+position:absolute;
+top:280px;
+left:40px;
+width:80%;
+height:30px;
+border-radius:10px;
+outline:none;
+}
+#c
+{
+position:absolute;
+top:215px;
+left:45px;
+font-size:25px;
+}
+
+.bt1 input[type='submit']
+{
+position:absolute;
+top:350px;
+left:42px;
+width:70px;
+height:30px;
+background-color:green;
+border-style:none;
+color:f1f1f1;
+font-size:16px;
+font-weight:bold;
+}
+.bt1 input[type='submit']:hover
+{
+color:white;
+}
+.bt2
+{
+position:absolute;
+top:350px;
+left:132px;
+width:170px;
+height:30px;
+background-color:#87CEEB;
+border-style:none;
+color:f1f1f1;
+font-size:16px;
+font-weight:bold;
+}
+#tt1:hover
+{
+color:white;
+}
+#tt1
+{
+position:absolute;
+color:black;
+left:30px;
+top:-10px;
+}
+
+
+    </style>
+</head>
+<body>
+<div class="top"><p id="tx1">Function based View ModelForm CRUD Project</p> </div>
+<div class="box1">
+    <div class="box2"><p id="tx2">
+            Update Student Information
+    </p> </div>
+    <div class="box3">
+       <form action="{% url 'home' %}" method="POST">
+            {% csrf_token %}
+            {% for fields in form %}
+                {{fields}}
+           {% endfor %}
+           <div class="bt1"><input  type="submit" value="Update"></div>
+         <a href="{% url 'home' %}"><div class="bt2"><p id="tt1">Back to home</p></div></a>
+           <p id="a">Name</p>
+           <p id="b">Email</p>
+           <p id="c">Password</p>
+       </form></div>
+</body>
+</html>

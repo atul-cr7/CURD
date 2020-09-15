@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>enroll</title>
+      <link rel="stylesheet" type="text/css" href="{% static 'student/enroll.css' %}">
+</head>
+<body>
+<div class="top"><p id="tx1">Function based View ModelForm CRUD Project</p> </div>
+<div class="box1">
+    <div class="box2"><p id="tx2">
+            Add New Student
+    </p> </div>
+   <div class="box3">
+       <form action="" method="POST">
+            {% csrf_token %}
+            {% for fields in form %}
+                {{fields}}
+           {% endfor %}
+           <div class="bt1"><input  type="submit" value="Add"></div>
+           <p id="a">Name</p>
+           <p id="b">Email</p>
+           <p id="c">Password</p>
+       </form></div>
+
+    <div class="box4"><p id="tx5">Show Student information</p></div>
+    <div class="box5">
+        {% if form %}
+        <table width="900px">
+            <tr>
+                <th id="a1">Id</th>
+                <th id="a2"> Name</th>
+                <th id="a3"> Email</th>
+                <th id="a4"> Password</th>
+                <th id="a5">Action</th>
+            </tr>
+            {% for f in st %}
+            <tr>
+                <th>{{f.id}}</th>
+                <th>{{f.Name}}</th>
+                <th>{{f.Email}}</th>
+                <th>{{f.Password}}</th>
+                <th>
+
+                    <a href="{% url 'update' f.id %}"> <input type="submit" value="Edit" class="bt2"></a>
+                       <form action="{% url 'delete' f.id %}" method="POST">
+                        {% csrf_token %}
+                    <input type="submit" value="Delete" class="bt3">
+                    </form>
+
+
+
+
+                </th>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <h3>no data</h3>
+        {% endif %}
+    </div>
+
+
+</div>
+</body>
+</html>
